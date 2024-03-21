@@ -29,3 +29,6 @@ RUN curl -L https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java
 	| tar xvz -C /opt/ \
 	&& ln -s /opt/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47.jar /opt/hadoop/share/hadoop/common/lib/ \
 	&& ln -s /opt/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47.jar /opt/hive-metastore/lib/ 
+
+RUN curl https://jdbc.postgresql.org/download/postgresql-42.7.3.jar --output /opt/hadoop/share/hadoop/common/lib/postgresql-42.7.3.jar
+RUN curl https://jdbc.postgresql.org/download/postgresql-42.7.3.jar --output /opt/hive-metastore/lib/postgresql-42.7.3.jar
