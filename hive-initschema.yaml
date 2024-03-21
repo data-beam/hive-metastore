@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hive-initschema
+  namespace: hive
+spec:
+  template:
+    spec:
+      containers:
+      - name: hivemeta
+        image: data-beam/hive-metastore:latest
+        command: ["/opt/hive-metastore/bin/schematool"]
+        args: ["--verbose" ,"-initSchema" , "-dbType", "postgresql" , "-userName", "postgres",
+          "-passWord", "SPNyVLLeqd3qLE8lgRw04Kua" , "-url", "jdbc:postgresql://postgres-dw-ha.stock-dw.svc:5432/metastore?createDatabaseIfNotExist=true"]
+      restartPolicy: Never
+  backoffLimit: 4
