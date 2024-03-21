@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
       - name: hivemeta
-        image: data-beam/hive-metastore:latest
+        image: ghcr.io/data-beam/hive-metastore:latest
         command: ["/opt/hive-metastore/bin/schematool"]
         args: ["--verbose" ,"-initSchema" , "-dbType", "postgresql" , "-userName", "postgres",
           "-passWord", "SPNyVLLeqd3qLE8lgRw04Kua" , "-url", "jdbc:postgresql://postgres-dw-ha.stock-dw.svc:5432/metastore?createDatabaseIfNotExist=true"]
